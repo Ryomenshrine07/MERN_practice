@@ -286,7 +286,7 @@
 // console.log(window.innerHeight);
 
 // Opens alert box
-// window.alert("Hello");
+// window.alert("Hello");    
 
 // [navigater] Object
 // Gives info about browser and system
