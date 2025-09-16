@@ -404,11 +404,69 @@
     // .catch((err) => console.log(err));
 
 
+// ======================================================================================================================
 
 
+// [this] keyword [call, apply, bind] These belongs to class components
+// [constructor, Prototypes]
+
+// 1. constructor Function
+
+// function Person(name, email){
+//     this.name = name;
+//     this.email = email;
+// }
+
+// const p = new Person("Vinayak Upadhyay", "vupadhyay382@gmail.com");
 
 
+// 2. Prototye => This is a hidden property of every object in javascript such that
+// if any field does not exits in an object then javascript flow will check the feild
+// in it's prototype field.
+
+// ex => p.address (here in p Person object address does not exists)
+// so javascript will search like p.prototype.address (does prototype feild has this property?)
+
+// We can add a new feild to the object using prototype feild by..
+// Person.prototype.address = "Patel Nagar, Bhopal";
+
+// When object is printed you can see that even though you have added address feild to the 
+// Person object but it will not show while printing the object. Which also gives us that
+// all the feilds made and assinged to the prototype feild of an object are hidden
+// console.log(p);
+
+// Printing Prototype feild
+// console.log("Address :", p.address);
 
 
+// [call, apply, bind] lets you manually control this.
+
+// function Human(name){
+//     this.name = name;
+// }
+
+// const h = new Human("Vinayak Upadhyay");
+
+// function greet(state, country){
+//     console.log(`Hello my name is ${this.name} and i am from ${state}, ${country}`);
+// }
+
+
+// 1. call
+// [call] immediately calls the function and lets you pass argument one by one
+// ex =>
+// greet.call(h, "Uttar Pradesh", "India");
+
+// 2. apply
+// [apply] also immediately calls the function but lets you pass argument as an array
+
+// greet.apply(h, ["Uttar Pradesh","India"]);
+
+// 3. bind
+// [bind] does not calls the function immediately but assigns the object to this refrence
+// and returns a new function with assined this
+
+// const greetFromVinayak = greet.bind(h,"Uttar Pradesh", "India");
+// greetFromVinayak();
 
 
