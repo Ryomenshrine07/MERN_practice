@@ -114,6 +114,7 @@
 //         }
 //     }
 // }
+// console.log(person.personal.dob.date);
 
 // // const details = await getPersonDetails();
 // const details = Person;
@@ -398,11 +399,13 @@
 
 // Basic Syntax =>
 
-    // fetch(url, options)
+    // fetch(url,options)
     // .then((res) => res.json())
     // .then((data) => console.log(data))
     // .catch((err) => console.log(err));
 
+// .then() => Inside this function we pass another function and it's paramter is reponse received
+// .catch() => Inside this fucntion we pass another function and it's para is error itself
 
 // ======================================================================================================================
 
@@ -417,12 +420,16 @@
 //     this.email = email;
 // }
 
+
+// Person.prototype.address = {street : "CP Mission Compound"}
 // const p = new Person("Vinayak Upadhyay", "vupadhyay382@gmail.com");
 
+// console.log(p);
 
 // 2. Prototye => This is a hidden property of every object in javascript such that
 // if any field does not exits in an object then javascript flow will check the feild
 // in it's prototype field.
+// => Prototype if always applied on the type of the object
 
 // ex => p.address (here in p Person object address does not exists)
 // so javascript will search like p.prototype.address (does prototype feild has this property?)
@@ -439,7 +446,7 @@
 // console.log("Address :", p.address);
 
 
-// [call, apply, bind] lets you manually control this.
+// [call, apply, bind] lets you manually control this keyword.
 
 // function Human(name){
 //     this.name = name;
