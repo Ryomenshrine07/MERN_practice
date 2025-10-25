@@ -25,6 +25,7 @@ const register = async(req, res) => {
             email:email,
             password:hashedPass
         });
+        // Saving user to the users database
         await newUser.save();
         return res.status(201).json({
             success:true,
