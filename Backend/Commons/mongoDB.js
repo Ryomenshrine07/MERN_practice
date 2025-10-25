@@ -8,4 +8,4 @@ const connectToDB = () => {
         console.log("There was some error in connecting with DB");
     });
 }
-module.exports = {connectToDB, Mongo:mongoose};
+module.exports = {connectToDB};
