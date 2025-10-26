@@ -1,6 +1,7 @@
 const User = require("../models/Authmodel");
 const bcrypt = require('bcryptjs');
-
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 
 
@@ -51,11 +52,19 @@ const login = async (req, res) => {
                 message: "You have not registered with this mail"
             });
         }
-        const isMatching =  await bcrypt.compare(password, user.password);
+        const isMatching = await bcrypt.compare(password, user.password);
         if(isMatching){
-            return res.status(200).json({
-                succes:true,
-                message: "Loggin in"
+            const payload = {
+                user:{
+                    id: user.id
+                }
+            }
+            jwt.sign(payload,process.env.JWT_SECRET,{expiresIn:'1h'},(err, token) => {
+                if(err) throw new err;
+                return res.status(200).json({
+                    success:true,
+                    token:token
+                });
             });
         }else{
             return res.status(403).json({

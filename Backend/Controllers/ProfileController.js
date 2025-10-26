@@ -1,0 +1,11 @@
+
+const getProfileData =  async(req, res) => {
+    return res.status(200).json({
+        success:true,
+        message:"HELOOOOOOOOOO"
+    })
+}   
+
+module.exports = {
+    getProfileData
+}
