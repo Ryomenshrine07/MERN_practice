@@ -7,14 +7,14 @@ module.exports = async(req, res, next) =>{
         if(req.path === '/login' || req.path === '/register') return next();
         const authHeader = req.header('Authorization');
         if(!authHeader){
-            res.status(401).json({
+            return res.status(401).json({
                 success:false,
                 message: "No token provided"
             });
         }
         const tokenParts = authHeader.split(' ');
         if(tokenParts.length !== 2 || tokenParts[0] !== 'Bearer'){
-            res.status(401).json({
+            return res.status(401).json({
                 success:false,
                 message:"Access denied. Malformed token"
             });
@@ -23,7 +23,7 @@ module.exports = async(req, res, next) =>{
         try{
             // jwt.verify(token , secret key) => decoded data
             const decodedData = jwt.verify(token, process.env.JWT_SECRET);
-            console.log(decodedData);
+            req.user = decodedData.user
             next();
         }catch(err){
             if(err.name == 'TokenExpiredError'){

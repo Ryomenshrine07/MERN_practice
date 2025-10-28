@@ -8,3 +8,9 @@ const AuthModel = new mongoose.Schema({
 const User = mongoose.model('users',AuthModel);
 
 module.exports = User;
+
+
+//  application/json
+
+
+// multipart/form-data
